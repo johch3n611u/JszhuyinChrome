@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSZhuyin IME 設定</title>
+<style>
+  :root { color-scheme: light dark; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font: 14px/1.6 -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
+    padding: 24px 24px 40px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 18px; margin-bottom: 4px; }
+  .subtitle { color: #6b7280; font-size: 12px; margin-bottom: 24px; }
+  .group {
+    background: var(--bg-card, #f9fafb);
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; }
+  select, input[type=number] {
+    width: 100%;
+    padding: 8px 10px;
+    font: inherit;
+    border: 1px solid var(--border, #d1d5db);
+    border-radius: 6px;
+    background: var(--bg-input, #fff);
+    color: var(--fg, #111827);
+  }
+  .hint { font-size: 11px; color: #6b7280; margin-top: 4px; }
+  .status {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; margin-bottom: 16px;
+  }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 99px;
+    font-size: 11px; font-weight: 700; color: #fff;
+  }
+  .badge-on  { background: #22c55e; }
+  .badge-off { background: #9ca3af; }
+  .footer {
+    margin-top: 24px; font-size: 11px; color: #9ca3af;
+  }
+  .footer a { color: #6b7280; }
+
+  @media (prefers-color-scheme: dark) {
+    body { background: #1f2937; color: #f3f4f6; }
+    .subtitle { color: #9ca3af; }
+    .group { background: #111827; border-color: #374151; }
+    select, input[type=number] {
+      background: #1f2937; border-color: #4b5563; color: #f3f4f6;
+    }
+    .hint { color: #9ca3af; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🔤 JSZhuyin Web IME</h1>
+<p class="subtitle">純離線繁體注音輸入法 — 設定</p>
+
+<div class="status" id="statusRow">
+  <span>目前狀態：</span>
+  <span class="badge badge-off" id="statusBadge">OFF</span>
+</div>
+
+<div class="group">
+  <label for="toggleKey">Toggle 鍵（切換開關的按鍵）</label>
+  <select id="toggleKey">
+    <option value="Shift">Shift（預設）</option>
+    <option value="Control">Ctrl</option>
+    <option value="Alt">Alt</option>
+    <option value="Meta">Meta（Windows／Cmd 鍵）</option>
+  </select>
+  <p class="hint">
+    只會偵測鍵盤<b>右側</b>的該修飾鍵（例如右 Shift），不會干擾正常打字時使用的左側按鍵。
+  </p>
+</div>
+
+<div class="group">
+  <label for="toggleCount">連按次數</label>
+  <input type="number" id="toggleCount" min="1" max="5" step="1" value="2">
+  <p class="hint">
+    需要在 <strong>500 毫秒</strong> 內連續點擊 <span id="countLabel">2</span> 次才會觸發切換。
+    設為 1 代表按一次即切換（注意誤觸風險）。
+  </p>
+</div>
+
+<p class="footer">
+  引擎基於 <a href="https://github.com/timdream/jszhuyin" target="_blank">timdream/jszhuyin</a>（MIT License）<br>
+  詞庫基於 <a href="https://github.com/openvanilla/McBopomofo" target="_blank">McBopomofo</a>（MIT License）
+</p>
+
+<script src="settings.js"></script>
+</body>
+</html>
