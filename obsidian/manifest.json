@@ -1,0 +1,9 @@
+{
+  "id": "jszhuyin-ime",
+  "name": "JSZhuyin IME",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "離線注音輸入法 — 在 Obsidian 全域使用標準注音鍵盤輸入繁體中文。",
+  "author": "jszhuyin-obsidian contributors",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,108 @@
+/* JSZhuyin IME — 候選浮層樣式 (使用 Obsidian CSS 變數) */
+
+.jszhuyin-overlay-host {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.jszhuyin-container {
+  pointer-events: auto;
+  font-family: var(--font-interface);
+  font-size: var(--font-text-sm, 14px);
+  line-height: 1.6;
+  color: var(--text-normal);
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s, 6px);
+  box-shadow: var(--shadow-l, 0 4px 16px rgba(0,0,0,0.15));
+  padding: 8px 12px;
+  max-width: 540px;
+  user-select: none;
+}
+
+.jszhuyin-loading {
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.composition-line {
+  display: none;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.composition-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--interactive-accent);
+  border-bottom: 2px solid var(--interactive-accent);
+  padding-bottom: 2px;
+}
+
+.candidates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.jszhuyin-candidate-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: 3px 8px;
+  background: var(--background-modifier-hover);
+  border-radius: var(--radius-xs, 3px);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.jszhuyin-candidate-item:hover {
+  background: var(--background-modifier-border);
+}
+
+.jszhuyin-candidate-item.selected {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.jszhuyin-candidate-index {
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-right: 1px;
+}
+
+.jszhuyin-candidate-item.selected .jszhuyin-candidate-index {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.jszhuyin-candidate-text {
+  font-size: var(--font-text-sm, 14px);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.page-left,
+.page-right {
+  cursor: pointer;
+  color: var(--interactive-accent);
+  font-weight: bold;
+}
+
+.page-left:hover,
+.page-right:hover {
+  opacity: 0.8;
+}

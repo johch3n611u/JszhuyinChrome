@@ -1,0 +1,65 @@
+{
+  "name": "jszhuyin-vscode",
+  "displayName": "JSZhuyin 注音輸入法",
+  "version": "0.1.0",
+  "description": "在 VS Code 編輯器中直接使用繁體注音輸入法。完全離線，專為 air-gap 企業環境設計。",
+  "publisher": "johch3n611u",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johch3n611u/JszhuyinVSCodeExtension.git"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["zhuyin", "bopomofo", "chinese", "ime", "注音", "繁體"],
+  "activationEvents": ["*"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "type", "title": "JSZhuyin: Type" },
+      { "command": "jszhuyin.toggle", "title": "切換輸入法開關" },
+      { "command": "jszhuyin.backspace", "title": "Backspace" },
+      { "command": "jszhuyin.confirmCandidate", "title": "確認第一候選" },
+      { "command": "jszhuyin.cancelComposition", "title": "取消組字" },
+      { "command": "jszhuyin.nextPage", "title": "候選下一頁" },
+      { "command": "jszhuyin.prevPage", "title": "候選上一頁" },
+      { "command": "jszhuyin.selectCandidate1", "title": "選取候選 1" },
+      { "command": "jszhuyin.selectCandidate2", "title": "選取候選 2" },
+      { "command": "jszhuyin.selectCandidate3", "title": "選取候選 3" },
+      { "command": "jszhuyin.selectCandidate4", "title": "選取候選 4" },
+      { "command": "jszhuyin.selectCandidate5", "title": "選取候選 5" },
+      { "command": "jszhuyin.selectCandidate6", "title": "選取候選 6" },
+      { "command": "jszhuyin.selectCandidate7", "title": "選取候選 7" },
+      { "command": "jszhuyin.selectCandidate8", "title": "選取候選 8" },
+      { "command": "jszhuyin.selectCandidate9", "title": "選取候選 9" }
+    ],
+    "keybindings": [
+      { "command": "jszhuyin.toggle", "key": "ctrl+space", "when": "editorTextFocus" },
+      { "command": "jszhuyin.backspace", "key": "backspace", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.confirmCandidate", "key": "enter", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.cancelComposition", "key": "escape", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.nextPage", "key": "shift+right", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.prevPage", "key": "shift+left", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate1", "key": "shift+1", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate2", "key": "shift+2", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate3", "key": "shift+3", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate4", "key": "shift+4", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate5", "key": "shift+5", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate6", "key": "shift+6", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate7", "key": "shift+7", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate8", "key": "shift+8", "when": "editorTextFocus && jszhuyin.composing" },
+      { "command": "jszhuyin.selectCandidate9", "key": "shift+9", "when": "editorTextFocus && jszhuyin.composing" }
+    ],
+    "configuration": {
+      "title": "JSZhuyin",
+      "properties": {
+        "jszhuyin.toggleKey": {
+          "type": "string", "default": "ctrl+space",
+          "description": "切換輸入法的快速鍵"
+        }
+      }
+    }
+  }
+}
